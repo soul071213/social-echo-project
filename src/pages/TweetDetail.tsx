@@ -107,6 +107,25 @@ const MOCK_COMMENTS: CommentProps[] = [
 const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?: boolean }) => {
   const [showReplies, setShowReplies] = useState(true);
   const [isReplying, setIsReplying] = useState(false);
+  const [replies, setReplies] = useState<CommentProps[]>(comment.replies || []);
+  
+  const handleNewReply = (content: string) => {
+    const newReply: CommentProps = {
+      id: `reply-${Date.now()}`,
+      author: {
+        name: "Current User",
+        username: "currentuser",
+        avatar: "https://placekitten.com/100/100",
+      },
+      replyToUsername: comment.author.username,
+      content: content,
+      timestamp: "just now",
+      likes: 0,
+    };
+    
+    setReplies([...replies, newReply]);
+    setIsReplying(false);
+  };
   
   return (
     <div>
@@ -117,7 +136,7 @@ const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?
               <AvatarImage src={comment.author.avatar} alt={comment.author.name} />
               <AvatarFallback>{comment.author.name[0]}</AvatarFallback>
             </Avatar>
-            {comment.replies && comment.replies.length > 0 && showReplies && (
+            {(replies.length > 0 && showReplies) && (
               <div className="w-0.5 grow bg-border mt-2"></div>
             )}
           </div>
@@ -157,7 +176,7 @@ const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?
                   placeholder={`Reply to @${comment.author.username}`}
                   buttonText="Reply"
                   isReply={true}
-                  onTweetSubmit={() => setIsReplying(false)}
+                  onTweetSubmit={handleNewReply}
                 />
               </div>
             )}
@@ -165,9 +184,9 @@ const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?
         </div>
       </div>
       
-      {comment.replies && comment.replies.length > 0 && showReplies && (
+      {replies.length > 0 && showReplies && (
         <div className="ml-12">
-          {comment.replies.map((reply) => (
+          {replies.map((reply) => (
             <Comment key={reply.id} comment={reply} isReply={true} />
           ))}
         </div>
