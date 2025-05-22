@@ -9,13 +9,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Link as LinkIcon, MapPin } from "lucide-react";
 
 const MOCK_USER = {
-  name: "Elon Musk",
-  username: "elonmusk",
-  avatar: "https://placekitten.com/400/400",
-  banner: "https://images.unsplash.com/photo-1699364505930-0b16affffea1?q=80&w=1000&auto=format&fit=crop",
-  bio: "CEO of X, SpaceX, Tesla, and Neuralink. Working to make humanity a spacefaring civilization.",
-  location: "Mars",
-  website: "twitter.com",
+  name: "살리바",
+  username: "saliba",
+  avatar: "https://i.namu.wiki/i/4PDm_H-xeZePeXDkEJiCnZG79lvMFtpcTkjzaGozWIni1-qtEyTEyqFT_gDOg0mO4517lEyDf41X5rMoVTSM2g.webp",
+  banner: "https://i.namu.wiki/i/iM0KxiIIa9FnalWjt0jXcVdjd4wpMf9Xa7omJ8vEX8kHj_QCJi7gaQnr9ce5JQgwTyZ4EYXaTLoVHuyQ1-JIKg.webp",
+  bio: "봉디",
+  location: "북런던",
+  website: "arsenal.com",
   joinedDate: "June 2009",
   following: 173,
   followers: 151500000,
@@ -30,7 +30,7 @@ const MOCK_USER_TWEETS = [
       username: MOCK_USER.username,
       avatar: MOCK_USER.avatar,
     },
-    content: "This is an example tweet. The future of humanity will be mostly in space, and mostly made up of genetically engineered super humans. 🚀",
+    content: "good saliba",
     timestamp: "2h",
     stats: {
       likes: 5432,
@@ -40,7 +40,7 @@ const MOCK_USER_TWEETS = [
     media: [
       {
         type: "image",
-        url: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1SVtpSBBH3q_DkUnCqvycYvvaCgXsaMP43w&s",
       },
     ],
   },
@@ -51,7 +51,7 @@ const MOCK_USER_TWEETS = [
       username: MOCK_USER.username,
       avatar: MOCK_USER.avatar,
     },
-    content: "The quality of consciousness software changed dramatically with GPT-4.",
+    content: "arsenal.",
     timestamp: "1d",
     stats: {
       likes: 76500,
@@ -66,7 +66,7 @@ const MOCK_USER_TWEETS = [
       username: MOCK_USER.username,
       avatar: MOCK_USER.avatar,
     },
-    content: "Universal truth: Different levels of consciousness are different experiences of the same universe.",
+    content: "북런던",
     timestamp: "2d",
     stats: {
       likes: 122000,

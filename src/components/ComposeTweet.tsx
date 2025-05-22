@@ -27,7 +27,6 @@ const ComposeTweet = ({
     
     setIsLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       if (onTweetSubmit) {
         onTweetSubmit(content);

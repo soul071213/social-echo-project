@@ -1,7 +1,6 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, User, Bell, Mail, Search, LogOut } from "lucide-react";
+import { Home, User, Bell, Mail, Search, LogOut, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -11,14 +10,18 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const isMobile = useIsMobile();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
 
   return (
-    <div className="flex min-h-screen bg-background">
-      {/* Sidebar Navigation */}
+    <div className="flex min-h-screen bg-background text-foreground dark:bg-black dark:text-white">
       <nav className="w-20 lg:w-64 border-r border-border fixed h-full flex flex-col justify-between py-4">
         <div>
-          {/* Logo */}
-          <div className="px-4 mb-6">
+
+          <div className="px-4 mb-6 flex justify-between items-center">
             <Link to="/" className="text-xl font-bold">
               <svg
                 viewBox="0 0 24 24"
@@ -31,9 +34,15 @@ const Layout = ({ children }: LayoutProps) => {
                 </g>
               </svg>
             </Link>
+
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="ml-auto p-2 rounded-full hover:bg-accent transition-colors"
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </div>
 
-          {/* Main Navigation */}
           <div className="space-y-1">
             <NavItem to="/" icon={<Home />} label="Home" />
             <NavItem to="/explore" icon={<Search />} label="Explore" />
@@ -42,7 +51,6 @@ const Layout = ({ children }: LayoutProps) => {
             <NavItem to="/profile" icon={<User />} label="Profile" />
           </div>
 
-          {/* Tweet Button */}
           <div className="px-4 mt-6">
             <Button className="w-full rounded-full bg-primary text-primary-foreground">
               {isMobile ? "+" : "Post"}
@@ -50,7 +58,6 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
 
-        {/* User Section */}
         <div className="px-4">
           <Button variant="ghost" className="w-full justify-start gap-2">
             <LogOut className="h-4 w-4" />
@@ -59,9 +66,8 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </nav>
 
-      {/* Main Content */}
       <main className="flex-1 ml-20 lg:ml-64">
-        <div className="container mx-auto max-w-2xl">{children}</div>
+        <div className="container mx-auto max-w-2xl py-4">{children}</div>
       </main>
     </div>
   );

@@ -23,12 +23,12 @@ interface CommentProps {
 const MOCK_TWEET: TweetProps = {
   id: "1",
   author: {
-    name: "Elon Musk",
-    username: "elonmusk",
-    avatar: "https://placekitten.com/200/200",
+    name: "살리바",
+    username: "saliba",
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GcbNsIUcaj0HL-gUvyg7eW_eV-QnjK4Trw&s",
   },
-  content: "This is an example tweet. The future of humanity will be mostly in space, and mostly made up of genetically engineered super humans. 🚀",
-  timestamp: "May 15",
+  content: "김치가",
+  timestamp: "ㅋㅋ",
   stats: {
     likes: 5432,
     retweets: 876,
@@ -37,7 +37,7 @@ const MOCK_TWEET: TweetProps = {
   media: [
     {
       type: "image",
-      url: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1SVtpSBBH3q_DkUnCqvycYvvaCgXsaMP43w&s",
     },
   ],
 };
@@ -46,62 +46,40 @@ const MOCK_COMMENTS: CommentProps[] = [
   {
     id: "c1",
     author: {
-      name: "Tech Enthusiast",
-      username: "techfan",
-      avatar: "https://placekitten.com/205/205",
+      name: "밥",
+      username: "칼라피오리",
+      avatar: "https://i.namu.wiki/i/D6qw-oHKiY47rAmUaeK0uKd1VYoUOCaDA-0BBvV2H9w8LTGUVdYL_a5w4eYL2DRtG5M3FclpDX6wRWaH3TOt7w.webp",
     },
-    content: "I'm excited to see how SpaceX's Starship will make this a reality!",
-    timestamp: "4h",
+    content: "좋노",
+    timestamp: "4시간 전",
     likes: 142,
   },
   {
     id: "c2",
     author: {
-      name: "Science Writer",
-      username: "sciencewriter",
-      avatar: "https://placekitten.com/206/206",
+      name: "살리바",
+      username: "살리바",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GcbNsIUcaj0HL-gUvyg7eW_eV-QnjK4Trw&s",
     },
-    content: "What's your timeline for the first Mars colony?",
-    timestamp: "5h",
+    content: "봉디",
+    timestamp: "5시간 전",
     likes: 78,
     replies: [
       {
         id: "r1",
         author: {
-          name: "Elon Musk",
+          name: "일론 머스크",
           username: "elonmusk",
           avatar: "https://placekitten.com/200/200",
         },
-        replyToUsername: "sciencewriter",
-        content: "Aiming for first human landing before 2030, sustainable colony by 2050.",
-        timestamp: "3h",
+        replyToUsername: "살리바",
+        content: "반갑노",
+        timestamp: "3시간 전  ",
         likes: 1254,
       },
-      {
-        id: "r2",
-        author: {
-          name: "Space Enthusiast",
-          username: "spacegeek",
-          avatar: "https://placekitten.com/207/207",
-        },
-        replyToUsername: "elonmusk",
-        content: "That's ambitious but exciting! Can't wait to see it happen.",
-        timestamp: "2h",
-        likes: 86,
-      }
     ]
   },
-  {
-    id: "c3",
-    author: {
-      name: "Skeptic",
-      username: "doubter",
-      avatar: "https://placekitten.com/208/208",
-    },
-    content: "Seems far-fetched. How will you solve radiation issues during long space travel?",
-    timestamp: "6h",
-    likes: 24,
-  },
+
 ];
 
 const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?: boolean }) => {
@@ -113,8 +91,8 @@ const Comment = ({ comment, isReply = false }: { comment: CommentProps, isReply?
     const newReply: CommentProps = {
       id: `reply-${Date.now()}`,
       author: {
-        name: "Current User",
-        username: "currentuser",
+        name: "정소울",
+        username: "soul",
         avatar: "https://placekitten.com/100/100",
       },
       replyToUsername: comment.author.username,
@@ -204,8 +182,8 @@ const TweetDetail = () => {
     const newComment: CommentProps = {
       id: `new-${Date.now()}`,
       author: {
-        name: "Current User",
-        username: "currentuser",
+        name: "정소울",
+        username: "soul",
         avatar: "https://placekitten.com/100/100",
       },
       content,
